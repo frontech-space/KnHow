@@ -5,8 +5,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <main className="container mx-auto px-4 py-8">
-        <Routes>
-        </Routes>
+        <Routes></Routes>
       </main>
     </BrowserRouter>
   );
