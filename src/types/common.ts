@@ -25,3 +25,9 @@ export interface ButtonProps {
   onClick: () => void;
   className?: string;
 }
+
+//　テキストの型
+export interface TextProps {
+  children: React.ReactNode;
+  className?: string;
+}

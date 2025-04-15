@@ -30,3 +30,17 @@ export const BUTTON_STYLES = {
     opacity: "hover:bg-opacity-50",
   },
 };
+
+//　テキストコンポーネントスタイル
+export const TEXT_STYLES = {
+  size: {
+    small: "text-sm",
+    medium: "text-base",
+    large: "text-lg",
+  },
+  textColor: {
+    white: "text-white",
+    black: "text-black",
+    gray: "text-gray-500",
+  },
+};
