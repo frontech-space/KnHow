@@ -25,3 +25,20 @@ export interface ButtonProps {
   onClick: () => void;
   className?: string;
 }
+
+// 入力フォームの型
+export interface InputProps {
+  size?: size;
+  backgroundColor?: backgroundColor;
+  borderColor?: borderColor;
+  textColor?: textColor;
+  hoverColor?: hoverColor;
+  isDisabled?: boolean;
+  isRound?: boolean;
+  isOutline?: boolean;
+  className?: string;
+  placeholder?: string;
+  type?: string;
+  name?: string;
+  id?: string;
+}

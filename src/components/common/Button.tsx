@@ -1,5 +1,5 @@
-import type { ButtonProps } from "~/types/common";
 import { COMMON_STYLES, BUTTON_STYLES } from "../../constants/styles";
+import type { ButtonProps } from "~/types/common";
 
 const Button = ({
   size = "medium", // ボタンのサイズ
@@ -17,7 +17,7 @@ const Button = ({
   return (
     <button
       className={`${isRound ? "rounded-full" : "rounded-md"} ${
-        isOutline ? "border border-black" : ""
+        isOutline ? `border ${BUTTON_STYLES.borderColor[borderColor]}` : ""
       } ${BUTTON_STYLES.size[size]} ${
         COMMON_STYLES.backgroundColor[backgroundColor]
       }
