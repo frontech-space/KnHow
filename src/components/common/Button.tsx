@@ -1,7 +1,7 @@
 import { COMMON_STYLES, BUTTON_STYLES } from "../../constants/styles";
-import type { ButtonProps } from "~/types/common";
+import type { ButtonProps } from "../../types/common";
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   size = "medium", // ボタンのサイズ
   backgroundColor = "primary", // ボタンの背景色
   borderColor = "primary", // ボタンのボーダー色
@@ -13,7 +13,7 @@ const Button = ({
   onClick, // ボタンがクリックされたときの処理
   children, // ボタンの中身
   className = "", // ボタンのクラス名
-}: ButtonProps) => {
+}) => {
   return (
     <button
       className={`${isRound ? "rounded-full" : "rounded-md"} ${

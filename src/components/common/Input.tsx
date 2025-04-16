@@ -1,7 +1,7 @@
-import type { InputProps } from "~/types/common";
+import type { InputProps } from "../../types/common";
 import { INPUT_STYLES, COMMON_STYLES } from "../../constants/styles";
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
   size = "medium", // 入力フォームのサイズ
   backgroundColor = "primary", // 入力フォームの背景色
   borderColor = "primary", // 入力フォームのボーダー色
@@ -15,7 +15,7 @@ const Input = ({
   name = "", // 入力フォームの名前
   id = "", // 入力フォームのID
   className = "", // 入力フォームのクラス名
-}: InputProps) => {
+}) => {
   return (
     <input
       className={`${isRound ? "rounded-full" : "rounded-md"} ${
