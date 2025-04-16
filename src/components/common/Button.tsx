@@ -1,4 +1,4 @@
-import { COMMON_STYLES, BUTTON_STYLES } from "../../constants/styles";
+import { COMMON_STYLES, BUTTON_STYLES } from "../../styles/ui";
 import type { ButtonProps } from "../../types/common";
 
 const Button: React.FC<ButtonProps> = ({

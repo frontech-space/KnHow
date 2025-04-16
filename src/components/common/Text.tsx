@@ -1,4 +1,4 @@
-import { TEXT_STYLES } from "../../constants/styles";
+import { TEXT_STYLES } from "../../styles/ui";
 import type { TextProps } from "../../types/common";
 
 const Text: React.FC<TextProps> = ({

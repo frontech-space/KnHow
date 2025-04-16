@@ -1,5 +1,5 @@
 import type { InputProps } from "../../types/common";
-import { INPUT_STYLES, COMMON_STYLES } from "../../constants/styles";
+import { INPUT_STYLES, COMMON_STYLES } from "../../styles/ui";
 
 const Input: React.FC<InputProps> = ({
   size = "medium", // 入力フォームのサイズ

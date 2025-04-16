@@ -1,9 +1,9 @@
-import { 
-  backgroundColor, 
-  borderColor, 
-  hoverColor, 
-  size, 
-  textColor 
+import {
+  backgroundColor,
+  borderColor,
+  hoverColor,
+  size,
+  textColor,
 } from "../types/common";
 
 // スタイル用の型定義
@@ -16,7 +16,7 @@ export const COMMON_STYLES = {
     secondary: "bg-gray-500",
     tertiary: "bg-white",
   } as StyleRecord<backgroundColor>,
-  
+
   textColor: {
     white: "text-white",
     black: "text-black",
@@ -33,13 +33,13 @@ export const BUTTON_STYLES = {
     medium: "text-base px-7 py-3",
     large: "text-lg px-9 py-4",
   } as StyleRecord<size>,
-  
+
   borderColor: {
     primary: "border-black",
     secondary: "border-gray-500",
     tertiary: "border-white",
   } as StyleRecord<borderColor>,
-  
+
   hoverColor: {
     primary: "hover:bg-black",
     secondary: "hover:bg-gray-500",
@@ -55,13 +55,13 @@ export const INPUT_STYLES = {
     medium: "text-base px-12 py-3",
     large: "text-lg px-16 py-4",
   } as StyleRecord<size>,
-  
+
   borderColor: {
     primary: "border-black",
     secondary: "border-gray-500",
     tertiary: "border-white",
   } as StyleRecord<borderColor>,
-  
+
   hoverColor: {
     primary: "hover:border-black",
     secondary: "hover:border-gray-500",
@@ -77,7 +77,7 @@ export const TEXT_STYLES = {
     medium: "text-3xl",
     large: "text-5xl",
   } as StyleRecord<size>,
-  
+
   textColor: {
     white: "text-white",
     black: "text-black",
