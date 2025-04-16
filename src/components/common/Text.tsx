@@ -1,12 +1,12 @@
 import { TEXT_STYLES } from "../../styles/ui";
 import type { TextProps } from "../../types/common";
 
-const Text: React.FC<TextProps> = ({
+const Text = ({
   children,
   size = "medium",
   textColor = "black",
   className = "",
-}) => {
+}: TextProps) => {
   return (
     <p
       className={`

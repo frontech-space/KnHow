@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { LayoutProps } from "../../types/layout";
 
-const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+const Layout= ({ children, title }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header title={title} />

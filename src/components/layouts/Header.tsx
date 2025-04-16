@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HeaderProps } from "../../types/layout";
 import Image from "../common/Image";
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header = ({ title }: HeaderProps) => {
   return (
     <header className="bg-white border-b-2 border-gray-200 shadow-md">
       <div className="container mx-auto px-7 py-5">
