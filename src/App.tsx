@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Top from "./pages/top";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <main className="container mx-auto px-4 py-8">
-        <Routes>
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Top />} />
+      </Routes>
     </BrowserRouter>
   );
 };
