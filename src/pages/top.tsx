@@ -1,8 +1,7 @@
-import React from "react";
 import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
 
-const Top: React.FC = () => {
+const Top = () => {
   return (
     <Layout title="トップページ">
       <div className="max-w-4xl mx-auto">
