@@ -1,14 +1,12 @@
 import Layout from "../components/layouts/Layout";
-import Text from "../components/common/Text";
+import Navigation from "../components/features/top/navigation";
 
 const Top = () => {
   return (
     <Layout title="トップページ">
-      <div className="max-w-4xl mx-auto">
+      <div className="w-full mx-auto">
         <section className="mb-10">
-          <Text size="large" textColor="wine-red">
-            テスト
-          </Text>
+          <Navigation />
         </section>
       </div>
     </Layout>

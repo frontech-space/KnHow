@@ -1,7 +1,7 @@
 # KnHow
 
 <div align="center">
-  <img src="./src/assets/images/knhow-panda-icon.png" alt="KnHow" width="300" height="300">
+  <img src="./public/assets/images/knhow-panda-icon.png" alt="KnHow" width="300" height="300">
 </div>
 
 ノウハウ共有アプリという体で作成する React ポートフォリオです
