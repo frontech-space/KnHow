@@ -6,7 +6,7 @@ const Layout= ({ children, title }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header title={title} />
-      <main className="flex-grow w-full">{children}</main>
+      <main className="w-full">{children}</main>
     </div>
   );
 };
