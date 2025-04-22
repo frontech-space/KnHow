@@ -1,5 +1,6 @@
 import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
+import ReleaseItem from "../components/features/release/ReleaseItem";
 
 const Release = () => {
 
@@ -14,22 +15,15 @@ const Release = () => {
 
   return (
     <Layout title="リリースノート">
-      <main className="flex flex-col md:flex-row w-full min-h-screen">
+      <div className="flex flex-col md:flex-row w-full min-h-screen">
         <section className="w-full md:w-[80%] flex flex-wrap justify-center">
           {releaseItems.map((releaseItem, index) => (
-            <div
-              key={index}
-              className="bg-gray-300 w-[330px] h-auto my-[2%] mx-[2%] py-[10%] px-[5%] text-center rounded-lg"
-            >
-              <Text
-                size="small"
-                textColor="black"
-                className="whitespace-pre-wrap"
-              >
-                {`${releaseItem.version}\n${releaseItem.feature}`}
-              </Text>
-            </div>
-          ))}
+              <ReleaseItem 
+                key={index}
+                version={releaseItem.version} 
+                feature={releaseItem.feature} 
+              />
+            ))}
         </section>
         <div className="border-r-2 border-black opacity-40 self-stretch mx-2"></div>
         <aside className="w-full md:w-[18%] py-[2%]">
@@ -41,7 +35,7 @@ const Release = () => {
                   yyyy/MM/dd Ver1.0リリース
           </Text>
         </aside>
-      </main>
+      </div>
     </Layout>
   );
 };
