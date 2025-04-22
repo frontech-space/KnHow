@@ -31,9 +31,11 @@ const Release = () => {
                     更新履歴
           </Text>
           <div className="hidden md:block border-t-2 border-black opacity-40 my-5"></div>
-          <Text size="small" textColor="black" className="text-left mx-[2%] md:text-center">
-                  yyyy/MM/dd Ver1.0リリース
-          </Text>
+          {releaseItems.map((releaseItem, index) => (
+            <Text key={index} size="small" textColor="black" className="text-left mx-[2%] md:text-center">
+              {`yyyy/MM/dd ${releaseItem.version} ${releaseItem.feature}`}
+            </Text>
+          ))}
         </aside>
       </div>
     </Layout>
