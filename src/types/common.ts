@@ -62,7 +62,7 @@ export interface ImageProps {
 }
 
 // リリースノートアイテムの型
-export interface ReleaseItemProps {
+export interface ReleaseCardsProps {
   version: string;
   feature: string;
 }

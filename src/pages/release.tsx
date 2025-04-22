@@ -1,6 +1,6 @@
 import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
-import ReleaseItem from "../components/features/release/ReleaseItem";
+import ReleaseItem from "../components/features/release/ReleaseCards";
 
 const Release = () => {
 
