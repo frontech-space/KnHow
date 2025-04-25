@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { HeaderProps } from "../../types/layout";
 import Image from "../common/Image";
@@ -11,9 +10,9 @@ const Header = ({ title }: HeaderProps) => {
           {/* 左側：アイコン（固定） */}
           <div className="w-1/2 md:w-1/3 flex justify-start">
             <Link to="/" className="flex items-center">
-              <Image 
-                src="/assets/images/knhow-panda-icon.png" 
-                alt="KnHow" 
+              <Image
+                src="/assets/images/knhow-panda-icon.png"
+                alt="KnHow"
                 className="h-20 md:h-24 w-auto"
               />
             </Link>

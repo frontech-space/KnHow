@@ -1,5 +1,4 @@
-import React from 'react';
-import { ImageProps } from '~/types/common';
+import { ImageProps } from '../../types/common';
 
 const Image = ({
   src, // 画像のURL
