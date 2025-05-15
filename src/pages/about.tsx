@@ -25,6 +25,7 @@ const About = () => {
         <div className="w-full md:1/2 h-full flex justify-center items-center" >
           <img
             src="/assets/images/about/pc.jpeg"
+            alt="PCの画像"
             className="max-w-full max-h-full object-cover "
           />
         </div>
