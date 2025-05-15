@@ -5,12 +5,21 @@ import Input from "../components/common/Input";
 
 const Contact = () => {
 
+  const handleResize = () => {
   const isMobile: boolean = window.innerWidth < 768;
   if (window.innerWidth >= 768) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
+};
+
+  if (window.innerWidth >= 768) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+    window.addEventListener("resize", handleResize);
 
   const handleSubmit = (): void => {
     console.log("フォーム送信");
