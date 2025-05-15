@@ -2,11 +2,11 @@ import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
 
   return (
-    <Layout title="ログイン">
+    <Layout title="アカウント作成">
       <section className="flex flex-col md:flex-row w-full mt-1" style={{ height: "calc(100vh - 142px)" }}>
         {/* 左：画像 */}
         <div className="w-full md:w-1/2 flex justify-center h-screen md:h-full ">
@@ -22,8 +22,25 @@ const Login = () => {
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center px-4 md:h-full">
           {/* <form className="w-full max-w-xs bg-transparent rounded-lg p-0"> */}
           <form className="w-full max-w-3xl rounded-lg">
-            {/* ユーザ名 */}
+            {/* メールアドレス */}
             <div className="mb-6">
+              <div className="flex items-center bg-black rounded px-4 py-3">
+                <label
+                  htmlFor="email"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
+                  メールアドレス：
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  className="flex-1 py-2 px-3 bg-gray-600 text-white border-none rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            {/* ユーザ名*/}
+            <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
                 <label
                   htmlFor="username"
@@ -39,7 +56,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            {/* パスワード */}
+            {/* パスワード*/}
             <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
                 <label
@@ -51,6 +68,23 @@ const Login = () => {
                 <input
                   type="password"
                   id="password"
+                  className="flex-1 py-2 px-3 bg-gray-600 text-white border-none rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            {/* パスワード確認*/}
+            <div className="mb-8">
+              <div className="flex items-center bg-black rounded px-4 py-3">
+                <label
+                  htmlFor="password_confirmation"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
+                  パスワード確認：
+                </label>
+                <input
+                  type="password"
+                  id="password_confirmation"
                   className="flex-1 py-2 px-3 bg-gray-600 text-white border-none rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
                   placeholder=""
                 />
@@ -72,15 +106,15 @@ const Login = () => {
             </div>
             <div className="relative flex items-center justify-center mt-4">
               <div className="flex-grow h-0.5 bg-gray-300"></div>
-              <span className="px-4 text-black text-lg">アカウントをお持ちでない方</span>
+              <span className="px-4 text-black text-lg">アカウントをお持ちの方</span>
               <div className="flex-grow h-0.5 bg-gray-300"></div>
             </div>
             <button
               type="button"
               className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded w-full mt-4 text-lg"
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/login")}
             >
-              アカウント作成
+              ログイン画面へ
             </button>
           </form>
         </div>
@@ -89,4 +123,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
