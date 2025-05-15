@@ -10,7 +10,7 @@ const About = () => {
           <Text size="medium" textColor="black" className="whitespace-pre-wrap">
             技術のキャッチアップをした{"\n"}ポートフォリオサイトになります
           </Text>
-          <div className="border-t-4 border-black-500 full my-6"></div>
+          <div className="border-t-2 border-black opacity-40 w-full my-6"></div>
           <a
             href="https://github.com/frontech-space/KnHow"
             target="_blank"

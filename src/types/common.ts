@@ -61,3 +61,8 @@ export interface ImageProps {
   lazy?: boolean;
 }
 
+// リリースノートアイテムの型
+export interface ReleaseCardsProps {
+  version: string;
+  feature: string;
+}
