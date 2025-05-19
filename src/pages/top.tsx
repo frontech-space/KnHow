@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const styles = {
   imageContainerDesktop: {
     clipPath: "polygon(100px 0, 100% 0, 100% 100%, 0 100%)",
-  }
+  },
 };
 
 const Top = () => {
@@ -55,9 +55,9 @@ const Top = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          
+
           {/* デスクトップ表示用（斜めカット） */}
-          <div 
+          <div
             className="absolute inset-0 overflow-hidden hidden md:block"
             style={styles.imageContainerDesktop}
           >
