@@ -59,6 +59,7 @@ const Release = () => {
             />
           ))}
         </section>
+        
         <div className="border-r-2 border-black opacity-40 self-stretch mx-2"></div>
         <aside className="w-full md:w-[18%] py-[2%]">
           <Text size="medium" textColor="black" className="text-left my-[1%] mx-[2%] md:text-center">
