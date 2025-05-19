@@ -34,6 +34,7 @@ jobs:
 
       - name: Build project
         run: |
+          echo "PUBLIC_URL=/knhow" >> .env
           echo "REACT_APP_PUBLIC_PATH=/knhow" >> .env
           yarn build
         env:
