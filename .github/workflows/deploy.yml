@@ -30,7 +30,7 @@ jobs:
       - name: Clean install dependencies
         run: |
           rm -f package-lock.json
-          yarn install --frozen-lockfile
+          yarn install
 
       - name: Build project
         run: |
