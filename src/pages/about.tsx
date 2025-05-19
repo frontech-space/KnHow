@@ -1,5 +1,6 @@
 import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
+import Image from "../components/common/Image";
 
 const About = () => {
   return (
@@ -22,10 +23,11 @@ const About = () => {
           </a>
         </div>
         {/* 画像ブロック */}
-        <div className="w-full md:1/2 h-full flex justify-center items-center" >
-          <img
+        <div className="w-full md:1/2 h-full flex justify-center items-center">
+          <Image
             src="/assets/images/about/pc.jpeg"
-            className="max-w-full max-h-full object-cover "
+            alt="pc"
+            className="max-w-full max-h-full object-cover"
           />
         </div>
       </section>
