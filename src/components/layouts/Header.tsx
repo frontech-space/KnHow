@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { HeaderProps } from "../../types/layout";
 import Image from "../common/Image";
-import { getAssetPath } from "../../utils/path";
 
 const Header = ({ title }: HeaderProps) => {
   return (
@@ -12,7 +11,7 @@ const Header = ({ title }: HeaderProps) => {
           <div className="w-1/2 md:w-1/3 flex justify-start">
             <Link to="/" className="flex items-center">
               <Image
-                src={getAssetPath("/assets/images/knhow-panda-icon.png")}
+                src={"/assets/images/knhow-panda-icon.png"}
                 alt="KnHow"
                 className="h-20 md:h-24 w-auto"
               />
