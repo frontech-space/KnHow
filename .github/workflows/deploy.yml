@@ -35,7 +35,7 @@ jobs:
         run: npm run build
         env:
           CI: false
-          PUBLIC_URL: https://frontech-space.github.io/knhow
+          PUBLIC_URL: /knhow
 
       - name: Deploy
         run: |

@@ -6,11 +6,8 @@ import Release from "./pages/release";
 import Contact from "./pages/contact";
 
 const App = () => {
-  // GitHub Pagesの場合はbasenameを設定、それ以外は空文字
-  const basename =
-    process.env.REACT_APP_DEPLOY_ENV === "github-pages"
-      ? process.env.PUBLIC_URL
-      : "";
+  // GitHub PagesのベースパスとローカルのパスをPUBLIC_URLから取得
+  const basename = process.env.PUBLIC_URL || "";
 
   return (
     <HelmetProvider>
