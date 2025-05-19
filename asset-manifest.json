@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/KnHow/static/css/main.d40206e7.css",
-    "main.js": "/KnHow/static/js/main.f339205d.js",
+    "main.js": "/KnHow/static/js/main.b98ab4b8.js",
     "index.html": "/KnHow/index.html",
     "main.d40206e7.css.map": "/KnHow/static/css/main.d40206e7.css.map",
-    "main.f339205d.js.map": "/KnHow/static/js/main.f339205d.js.map"
+    "main.b98ab4b8.js.map": "/KnHow/static/js/main.b98ab4b8.js.map"
   },
   "entrypoints": [
     "static/css/main.d40206e7.css",
-    "static/js/main.f339205d.js"
+    "static/js/main.b98ab4b8.js"
   ]
 }
