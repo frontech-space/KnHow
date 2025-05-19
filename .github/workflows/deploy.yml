@@ -28,7 +28,15 @@ jobs:
         run: |
           export CI=false
           export PUBLIC_URL=/knhow
+          export REACT_APP_BASE_URL=/knhow
           npm run build
+        env:
+          CI: false
+          PUBLIC_URL: /knhow
+          REACT_APP_BASE_URL: /knhow
+
+      - name: List build directory
+        run: ls -la build/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
@@ -36,3 +44,4 @@ jobs:
           folder: build
           branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
