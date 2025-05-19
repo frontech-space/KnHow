@@ -5,7 +5,6 @@ import ReleaseItem from "../components/features/release/ReleaseCards";
 import Button from "../components/common/Button";
 
 const Release = () => {
-
   const [isExpanded, setIsExpanded] = useState(false);
 
   const releaseItems: { version: string; feature: string }[] = [
@@ -17,7 +16,7 @@ const Release = () => {
     { version: "Ver1.0", feature: "-ノウハウ共有機能" },
   ];
 
-    const visibleItems = isExpanded ? releaseItems : releaseItems.slice(0, 4);
+  const visibleItems = isExpanded ? releaseItems : releaseItems.slice(0, 4);
 
   return (
     <Layout title="リリースノート">
@@ -59,7 +58,7 @@ const Release = () => {
             />
           ))}
         </section>
-        
+
         <div className="border-r-2 border-black opacity-40 self-stretch mx-2"></div>
         <aside className="w-full md:w-[18%] py-[2%]">
           <Text
