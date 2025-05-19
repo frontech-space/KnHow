@@ -6,12 +6,9 @@ import Release from "./pages/release";
 import Contact from "./pages/contact";
 
 const App = () => {
-  // GitHub PagesのベースパスとローカルのパスをPUBLIC_URLから取得
-  const basename = process.env.PUBLIC_URL || "";
-
   return (
     <HelmetProvider>
-      <Router basename={basename}>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Top />} />
           <Route path="/about" element={<About />} />
