@@ -1,41 +1,46 @@
+import { useState, ChangeEvent, FormEvent } from "react";
 import Layout from "../components/layouts/Layout";
 import Text from "../components/common/Text";
 import Image from "../components/common/Image";
 import Input from "../components/common/Input";
+import Button from "../components/common/Button";
 
 const Contact = () => {
 
-  const handleResize = () => {
-  const isMobile: boolean = window.innerWidth < 768;
-  if (window.innerWidth >= 768) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
-};
+  const [subject, setSubject] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
-  if (window.innerWidth >= 768) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
-    window.addEventListener("resize", handleResize);
+  const handleReset = (): void => {
+    setSubject("");
+    setMessage("");
+  };
 
-  const handleSubmit = (): void => {
-    console.log("フォーム送信");
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log("件名:", subject);
+    console.log("内容:", message);
+  };
+
+  //inputにvalueとonChangeが引数で含まれないため、一旦仮実装
+  const handleSubjectChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  setSubject(e.target.value);
+  };
+
+  const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
+    setMessage(e.target.value);
   };
 
   return (
     <Layout title="お問い合わせ">
-      <div className="flex flex-col md:flex-row w-full min-h-screen h-[calc(100vh-130px)]">
+      <div className="flex flex-col md:flex-row w-full min-h-[calc(100vh-180px)]">
         <section className="w-full md:w-[60%] flex flex-wrap justify-center items-stretch">
           <Image
                 src="/assets/images/contact/knhow-panda-background.jpeg"
                 alt="KnHow"
-                className="w-full h-[calc(100vh-130px)] object-cover"
+                className="w-full h-[calc(80vh)] object-cover"
               />
         </section>
-        <aside className="w-full md:w-[40%]">
+        <aside className="w-full md:w-[40%] min-h-[calc(100vh-180px)]">
           <Text size="medium" textColor="black" className="hidden md:block my-[5%] mx-[2%] text-center">
             お問い合わせ内容をご入力ください
           </Text>
@@ -48,17 +53,37 @@ const Contact = () => {
 
             <div className="bg-black h-[calc(100vh*0.4)] py-[2%] px-[2%] w-[80%] mx-[10%] flex items-center justify-center rounded-lg">
               <Text size="small" className="text-white">内容&nbsp;:&nbsp;</Text>
-              <textarea className="w-[80%] h-full bg-gray-500 py-[1%] px-[1%] rounded-md text-black" ></textarea>
+              <textarea className="w-[80%] h-full bg-gray-500 py-[1%] px-[1%] rounded-md text-black" value={message} onChange={handleMessageChange} ></textarea>
             </div>
 
             <div className="flex justify-between my-[5%] mx-[10%]">
-              <button type="reset" className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded text-lg">
+              <Button
+              size="medium"
+              backgroundColor="primary"
+              borderColor="tertiary"
+              textColor="white"
+              hoverColor="opacity"
+              isRound={true}
+              isOutline={true}
+              onClick={handleReset}
+              className="w-fit px-[5%] py-[1%] mx-[1%]"
+              >
                 リセット
-              </button>
+              </Button>
 
-              <button type="submit" className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded text-lg">
-                送信
-              </button>
+              <Button
+                size="medium"
+                backgroundColor="primary"
+                borderColor="tertiary"
+                textColor="white"
+                hoverColor="opacity"
+                isRound={true}
+                isOutline={true}
+                onClick={() => (handleSubmit)}
+                className="w-fit px-[5%] py-[1%] mx-[1%]"
+                >
+                  送信
+              </Button>
             </div>
           </form>
         </aside>
