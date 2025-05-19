@@ -6,11 +6,22 @@ import Release from "./pages/release";
 import Contact from "./pages/contact";
 
 const App = () => {
-  // GitHub Pagesの場合はbasenameを設定、それ以外は空文字
-  const basename =
-    process.env.REACT_APP_DEPLOY_ENV === "github-pages"
-      ? process.env.PUBLIC_URL
-      : "";
+  // Get basename from PUBLIC_URL environment variable
+  const getBasename = () => {
+    const publicUrl = process.env.PUBLIC_URL || '';
+    // If PUBLIC_URL is not set or is just '/', return empty string
+    if (!publicUrl || publicUrl === '/') return '';
+    // Extract the last part of the URL (e.g., '/KnHow' from 'https://example.com/KnHow' or '/KnHow')
+    try {
+      const url = new URL(publicUrl);
+      return url.pathname;
+    } catch {
+      // If PUBLIC_URL is not a valid URL, assume it's a pathname
+      return publicUrl;
+    }
+  };
+
+  const basename = getBasename();
 
   return (
     <HelmetProvider>
