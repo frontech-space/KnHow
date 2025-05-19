@@ -6,7 +6,7 @@ import Button from "../components/common/Button";
 
 const Release = () => {
 
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const releaseItems: { version: string; feature: string }[] = [
     { version: "Ver1.0", feature: "-ノウハウ共有機能" },
