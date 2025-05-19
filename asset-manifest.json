@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "https://frontech-space.github.io/knhow/static/css/main.d40206e7.css",
-    "main.js": "https://frontech-space.github.io/knhow/static/js/main.f7469699.js",
+    "main.js": "https://frontech-space.github.io/knhow/static/js/main.6353c972.js",
     "index.html": "https://frontech-space.github.io/knhow/index.html",
     "main.d40206e7.css.map": "https://frontech-space.github.io/knhow/static/css/main.d40206e7.css.map",
-    "main.f7469699.js.map": "https://frontech-space.github.io/knhow/static/js/main.f7469699.js.map"
+    "main.6353c972.js.map": "https://frontech-space.github.io/knhow/static/js/main.6353c972.js.map"
   },
   "entrypoints": [
     "static/css/main.d40206e7.css",
-    "static/js/main.f7469699.js"
+    "static/js/main.6353c972.js"
   ]
 }
