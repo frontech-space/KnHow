@@ -73,9 +73,9 @@ export const INPUT_STYLES = {
 //　テキストコンポーネントスタイル
 export const TEXT_STYLES = {
   size: {
-    small: "text-lg",
-    medium: "text-3xl",
-    large: "text-5xl",
+    small: "text-[min(4vw,18px)]",
+    medium: "text-[min(6vw,30px)]",
+    large: "text-[min(9vw,48px)]",
   } as StyleRecord<size>,
 
   textColor: {
