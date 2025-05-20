@@ -4,7 +4,7 @@ import { render as rtlRender } from '@testing-library/react'
 // カスタムレンダー関数
 function render(ui: ReactElement, options = {}) {
   return rtlRender(ui, {
-    wrapper: ({ children }) => children,
+    wrapper: ({ children }) => <>{children}</>,
     ...options,
   })
 }
