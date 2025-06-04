@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Top from "./pages/top";
 import About from "./pages/about";
 import Release from "./pages/release";
-import Contact from "./pages/contact";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 
 const App = () => {
   const getBasename = () => {
@@ -29,7 +30,8 @@ const App = () => {
           <Route path="/" element={<Top />} />
           <Route path="/about" element={<About />} />
           <Route path="/release" element={<Release />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </Router>
     </HelmetProvider>
