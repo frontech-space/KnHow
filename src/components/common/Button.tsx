@@ -13,6 +13,7 @@ const Button = ({
   onClick, // ボタンがクリックされたときの処理
   children, // ボタンの中身
   className = "", // ボタンのクラス名
+  ...props
 }: ButtonProps) => {
   return (
     <button
@@ -27,6 +28,7 @@ const Button = ({
       `}
       onClick={onClick}
       disabled={isDisabled}
+      {...props}
     >
       {children}
     </button>

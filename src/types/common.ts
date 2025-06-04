@@ -12,7 +12,7 @@ export type borderColor = "primary" | "secondary" | "tertiary";
 export type hoverColor = "primary" | "secondary" | "tertiary" | "opacity";
 
 // ボタンの型
-export interface ButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size?: size;
   backgroundColor?: backgroundColor;
@@ -22,7 +22,7 @@ export interface ButtonProps {
   isDisabled?: boolean;
   isRound?: boolean;
   isOutline?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 }
 
