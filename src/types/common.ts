@@ -41,6 +41,8 @@ export interface InputProps {
   type?: string;
   name?: string;
   id?: string;
+  "data-testid"?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 //　テキストの型

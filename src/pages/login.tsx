@@ -4,6 +4,7 @@ import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Image from "../components/common/Image";
 import { useNavigate } from "react-router-dom";
+import Navigation from "../components/features/top/Navigation";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,6 +14,9 @@ const Login = () => {
 
   return (
     <Layout title="ログイン">
+      {/* Navigation */}
+      <Navigation />
+      
       <section
         className="flex flex-col md:flex-row w-full mt-1"
         style={{ height: "calc(100vh - 142px)" }}
@@ -39,7 +43,7 @@ const Login = () => {
             {/* ユーザ名 */}
             <div className="mb-6">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label htmlFor="username" className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
                   ユーザ名：
                 </label>
                 <Input
@@ -54,7 +58,7 @@ const Login = () => {
             {/* パスワード */}
             <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label htmlFor="password" className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
                   パスワード：
                 </label>
                 <Input

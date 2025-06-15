@@ -4,11 +4,48 @@ import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Image from "../components/common/Image";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // パスワード不一致のチェックを最初に行う
+    if (password !== confirmPassword) {
+      setError("パスワードが一致しません");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          username,
+          password,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "アカウント作成に失敗しました");
+      }
+
+      navigate("/login");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "アカウント作成に失敗しました");
+    }
   };
 
   return (
@@ -28,74 +65,95 @@ const Signup = () => {
         {/* 中央：縦線 */}
         <div className="hidden md:block border-l-4 border-gray-300 md:h-full mx-8"></div>
         {/* 右：フォーム */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center px-4 md:h-full">
+        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
           <form
             className="w-full max-w-3xl rounded-lg"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
+            onSubmit={handleSubmit}
+            role="form"
           >
             {/* メールアドレス */}
             <div className="mb-6">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label
+                  htmlFor="email"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
                   メールアドレス：
                 </label>
                 <Input
                   type="email"
                   id="email"
-                  backgroundColor="secondary"
-                  textColor="white"
-                  className="flex-1 py-2 px-3"
+                  data-testid="email"
+                  className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
             {/* ユーザ名*/}
             <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label
+                  htmlFor="username"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
                   ユーザ名：
                 </label>
                 <Input
                   type="text"
                   id="username"
-                  backgroundColor="secondary"
-                  textColor="white"
-                  className="flex-1 py-2 px-3"
+                  data-testid="username"
+                  className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
             {/* パスワード*/}
             <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label
+                  htmlFor="password"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
                   パスワード：
                 </label>
                 <Input
                   type="password"
                   id="password"
-                  backgroundColor="secondary"
-                  textColor="white"
-                  className="flex-1 py-2 px-3"
+                  data-testid="password"
+                  className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
             {/* パスワード確認*/}
             <div className="mb-8">
               <div className="flex items-center bg-black rounded px-4 py-3">
-                <label className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32">
+                <label
+                  htmlFor="password_confirmation"
+                  className="text-white text-lg font-bold mr-4 whitespace-nowrap w-32"
+                >
                   パスワード確認：
                 </label>
                 <Input
                   type="password"
                   id="password_confirmation"
-                  backgroundColor="secondary"
-                  textColor="white"
-                  className="flex-1 py-2 px-3"
+                  data-testid="password_confirmation"
+                  className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             </div>
+            {/* エラーメッセージ */}
+            {error && (
+              <div 
+                className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded relative" 
+                data-testid="error-message"
+                role="alert"
+                aria-live="polite"
+              >
+                <span className="block sm:inline">{error}</span>
+              </div>
+            )}
             <div className="flex justify-between mb-6">
               <Button
                 backgroundColor="primary"
@@ -109,7 +167,7 @@ const Signup = () => {
                 backgroundColor="primary"
                 textColor="white"
                 className="py-3 px-6 text-lg"
-                onClick={handleSubmit}
+                type="submit"
               >
                 送信
               </Button>
