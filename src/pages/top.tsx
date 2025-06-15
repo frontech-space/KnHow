@@ -1,5 +1,5 @@
 import Layout from "../components/layouts/Layout";
-import Navigation from "../components/features/top/navigation";
+import Navigation from "../components/features/top/Navigation";
 import Image from "../components/common/Image";
 import Text from "../components/common/Text";
 import Button from "../components/common/Button";
