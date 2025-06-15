@@ -5,6 +5,7 @@ import About from "./pages/about";
 import Release from "./pages/release";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
+import Contact from "./pages/contact";
 
 const App = () => {
   const getBasename = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/release" element={<Release />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </HelmetProvider>

@@ -3,7 +3,7 @@ import Text from "../../common/Text";
 
 const Navigation = () => {
   return (
-    <div className="bg-black flex flex-col md:flex-row w-full relative">
+    <div role="navigation" className="bg-black flex flex-col md:flex-row w-full relative">
       <Link to="/about" className="w-full md:w-1/3 py-2 md:py-5 relative">
         <div className="flex justify-center items-center h-full">
           <Text
