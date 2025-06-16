@@ -18,7 +18,13 @@ const Signup = () => {
     e.preventDefault();
     setError("");
 
-    // パスワード不一致のチェックを最初に行う
+    // 必須項目のチェック
+    if (!email || !username || !password || !confirmPassword) {
+      setError("必須項目を入力してください");
+      return;
+    }
+
+    // パスワード不一致のチェック
     if (password !== confirmPassword) {
       setError("パスワードが一致しません");
       return;
@@ -37,8 +43,9 @@ const Signup = () => {
         }),
       });
 
+      const data = await response.json();
+      
       if (!response.ok) {
-        const data = await response.json();
         throw new Error(data.message || "アカウント作成に失敗しました");
       }
 
@@ -84,6 +91,7 @@ const Signup = () => {
                   type="email"
                   id="email"
                   data-testid="email"
+                  value={email}
                   className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -102,6 +110,7 @@ const Signup = () => {
                   type="text"
                   id="username"
                   data-testid="username"
+                  value={username}
                   className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -120,6 +129,7 @@ const Signup = () => {
                   type="password"
                   id="password"
                   data-testid="password"
+                  value={password}
                   className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -138,6 +148,7 @@ const Signup = () => {
                   type="password"
                   id="password_confirmation"
                   data-testid="password_confirmation"
+                  value={confirmPassword}
                   className="rounded-md  bg-gray-500 text-white text-base px-12 py-3 hover:border-gray-500 flex-1 py-2 px-3"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
@@ -151,7 +162,7 @@ const Signup = () => {
                 role="alert"
                 aria-live="polite"
               >
-                <span className="block sm:inline">{error}</span>
+                {error}
               </div>
             )}
             <div className="flex justify-between mb-6">
@@ -160,6 +171,13 @@ const Signup = () => {
                 textColor="white"
                 className="py-3 px-6 text-lg"
                 type="reset"
+                onClick={() => {
+                  setEmail("");
+                  setUsername("");
+                  setPassword("");
+                  setConfirmPassword("");
+                  setError("");
+                }}
               >
                 リセット
               </Button>

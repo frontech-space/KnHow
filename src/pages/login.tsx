@@ -5,11 +5,46 @@ import Button from "../components/common/Button";
 import Image from "../components/common/Image";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/features/top/Navigation";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // 必須項目のチェック
+    if (!username || !password) {
+      setError("必須項目を入力してください");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || "ログインに失敗しました");
+      }
+
+      navigate("/");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "ログインに失敗しました");
+    }
   };
 
   return (
@@ -35,10 +70,8 @@ const Login = () => {
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center px-4 md:h-full">
           <form
             className="w-full max-w-3xl rounded-lg"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
+            onSubmit={handleSubmit}
+            role="form"
           >
             {/* ユーザ名 */}
             <div className="mb-6">
@@ -49,9 +82,12 @@ const Login = () => {
                 <Input
                   type="text"
                   id="username"
+                  data-testid="username"
+                  value={username}
                   backgroundColor="secondary"
                   textColor="white"
                   className="flex-1 py-2 px-3"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
             </div>
@@ -64,18 +100,37 @@ const Login = () => {
                 <Input
                   type="password"
                   id="password"
+                  data-testid="password"
+                  value={password}
                   backgroundColor="secondary"
                   textColor="white"
                   className="flex-1 py-2 px-3"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
+            {/* エラーメッセージ */}
+            {error && (
+              <div 
+                className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded relative" 
+                data-testid="error-message"
+                role="alert"
+                aria-live="polite"
+              >
+                {error}
+              </div>
+            )}
             <div className="flex justify-between mb-6">
               <Button
                 backgroundColor="primary"
                 textColor="white"
                 className="py-3 px-6 text-lg"
                 type="reset"
+                onClick={() => {
+                  setUsername("");
+                  setPassword("");
+                  setError("");
+                }}
               >
                 リセット
               </Button>
@@ -83,7 +138,7 @@ const Login = () => {
                 backgroundColor="primary"
                 textColor="white"
                 className="py-3 px-6 text-lg"
-                onClick={handleSubmit}
+                type="submit"
               >
                 送信
               </Button>

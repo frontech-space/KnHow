@@ -42,6 +42,7 @@ export interface InputProps {
   name?: string;
   id?: string;
   "data-testid"?: string;
+  value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
