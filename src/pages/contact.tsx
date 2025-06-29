@@ -5,7 +5,11 @@ import Image from "../components/common/Image";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 
-const Contact = () => {
+type ContactProps = {
+  onSubmit?: (subject: string, message: string) => void;
+};
+
+const Contact = ({ onSubmit }: ContactProps) => {
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
@@ -16,11 +20,14 @@ const Contact = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log("件名:", subject);
-    console.log("内容:", message);
+    if (onSubmit) {
+      onSubmit(subject, message);
+    } else {
+      console.log("件名:", subject);
+      console.log("内容:", message);
+    }
   };
 
-  //inputにvalueとonChangeが引数で含まれないため、一旦仮実装
   const handleSubjectChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSubject(e.target.value);
   };
@@ -55,8 +62,11 @@ const Contact = () => {
               </Text>
               <Input
                 backgroundColor="secondary"
-                id="username"
-                name="username"
+                id="subject"
+                name="subject"
+                value={subject}
+                onChange={handleSubjectChange}
+                placeholder="件名を入力してください"
                 className="w-[80%]"
               />
             </div>
@@ -69,11 +79,13 @@ const Contact = () => {
                 className="w-[80%] h-full bg-gray-500 py-[1%] px-[1%] rounded-md text-black"
                 value={message}
                 onChange={handleMessageChange}
+                placeholder="内容を入力してください"
               ></textarea>
             </div>
 
             <div className="flex justify-between my-[5%] mx-[10%]">
               <Button
+                type="button"
                 size="medium"
                 backgroundColor="primary"
                 borderColor="tertiary"
@@ -88,6 +100,7 @@ const Contact = () => {
               </Button>
 
               <Button
+                type="submit"
                 size="medium"
                 backgroundColor="primary"
                 borderColor="tertiary"
@@ -95,7 +108,6 @@ const Contact = () => {
                 hoverColor="opacity"
                 isRound={true}
                 isOutline={true}
-                onClick={() => handleSubmit}
                 className="w-fit px-[5%] py-[1%] mx-[1%]"
               >
                 送信
