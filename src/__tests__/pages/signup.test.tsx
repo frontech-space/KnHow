@@ -196,6 +196,53 @@ describe("Signup", () => {
         expect(screen.getByTestId("error-message")).toHaveTextContent("サーバーエラーが発生しました");
       });
     });
+
+    it("サーバーエラーでdata.messageが存在しない場合にデフォルトエラーメッセージが表示される", async () => {
+      mockFetch.mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: false,
+          json: () => Promise.resolve({}), // data.messageが存在しない
+        })
+      );
+
+      renderWithProviders(<Signup />);
+
+      // フォームに値を入力
+      fireEvent.change(screen.getByTestId("email"), { target: { value: "test@example.com" } });
+      fireEvent.change(screen.getByTestId("username"), { target: { value: "testuser" } });
+      fireEvent.change(screen.getByTestId("password"), { target: { value: "password123" } });
+      fireEvent.change(screen.getByTestId("password_confirmation"), { target: { value: "password123" } });
+
+      // フォームを送信
+      fireEvent.submit(screen.getByRole("form"));
+
+      // デフォルトのエラーメッセージが表示されることを確認
+      await waitFor(() => {
+        expect(screen.getByTestId("error-message")).toHaveTextContent("アカウント作成に失敗しました");
+      });
+    });
+
+    it("Errorインスタンスでないエラーが発生した場合にデフォルトエラーメッセージが表示される", async () => {
+      mockFetch.mockImplementationOnce(() =>
+        Promise.reject("文字列エラー") // Errorインスタンスでない
+      );
+
+      renderWithProviders(<Signup />);
+
+      // フォームに値を入力
+      fireEvent.change(screen.getByTestId("email"), { target: { value: "test@example.com" } });
+      fireEvent.change(screen.getByTestId("username"), { target: { value: "testuser" } });
+      fireEvent.change(screen.getByTestId("password"), { target: { value: "password123" } });
+      fireEvent.change(screen.getByTestId("password_confirmation"), { target: { value: "password123" } });
+
+      // フォームを送信
+      fireEvent.submit(screen.getByRole("form"));
+
+      // デフォルトのエラーメッセージが表示されることを確認
+      await waitFor(() => {
+        expect(screen.getByTestId("error-message")).toHaveTextContent("アカウント作成に失敗しました");
+      });
+    });
   });
 
   it("ログインページへのリンクが正しく機能する", () => {
@@ -203,6 +250,15 @@ describe("Signup", () => {
 
     const loginLink = screen.getByText("ログイン画面へ");
     fireEvent.click(loginLink);
+
+    expect(mockNavigate).toHaveBeenCalledWith("/login");
+  });
+
+  it("「ログイン画面へ」ボタンをクリックすると/loginに遷移する", () => {
+    renderWithProviders(<Signup />);
+
+    const loginButton = screen.getByRole("button", { name: "ログイン画面へ" });
+    fireEvent.click(loginButton);
 
     expect(mockNavigate).toHaveBeenCalledWith("/login");
   });
