@@ -4,7 +4,7 @@ import Image from "../common/Image";
 
 const Header = ({ title }: HeaderProps) => {
   return (
-    <header className="bg-white border-b-2 border-gray-200 shadow-md">
+    <header role="banner" className="bg-white border-b-2 border-gray-200 shadow-md">
       <div className="container mx-auto px-4 md:px-7 py-3 md:py-5">
         <div className="flex items-center justify-between">
           {/* 左側：アイコン（固定） */}

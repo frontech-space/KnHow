@@ -15,6 +15,9 @@ const Input = ({
   name = "", // 入力フォームの名前
   id = "", // 入力フォームのID
   className = "", // 入力フォームのクラス名
+  "data-testid": dataTestId, // テスト用のID
+  value = "", // 入力フォームの値
+  onChange, // 値が変更されたときの処理
 }: InputProps) => {
   return (
     <input
@@ -30,6 +33,9 @@ const Input = ({
       type={type}
       name={name}
       id={id}
+      data-testid={dataTestId}
+      value={value}
+      onChange={onChange}
     />
   );
 };

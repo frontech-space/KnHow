@@ -21,7 +21,11 @@ const Release = () => {
   return (
     <Layout title="リリースノート">
       <div className="flex flex-col md:flex-row w-full min-h-screen">
-        <section className="w-full md:w-[80%] flex flex-wrap justify-center md:hidden">
+        {/* モバイル表示エリア */}
+        <section
+          className="w-full md:w-[80%] flex flex-wrap justify-center md:hidden"
+          data-testid="mobile-release-section"
+        >
           {visibleItems.map((item, index) => (
             <ReleaseItem
               key={`mobile-${index}`}
@@ -49,7 +53,11 @@ const Release = () => {
           </div>
         </section>
 
-        <section className="hidden md:flex md:w-[80%] flex-wrap justify-center">
+        {/* PC表示エリア */}
+        <section
+          className="hidden md:flex md:w-[80%] flex-wrap justify-center"
+          data-testid="pc-release-section"
+        >
           {releaseItems.map((item, index) => (
             <ReleaseItem
               key={`pc-${index}`}
@@ -60,7 +68,9 @@ const Release = () => {
         </section>
 
         <div className="border-r-2 border-black opacity-40 self-stretch mx-2"></div>
-        <aside className="w-full md:w-[18%] py-[2%]">
+
+        {/* サイドバー（履歴表示） */}
+        <aside className="w-full md:w-[18%] py-[2%]" data-testid="release-history-sidebar">
           <Text
             size="medium"
             textColor="black"

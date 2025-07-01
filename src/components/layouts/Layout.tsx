@@ -10,7 +10,7 @@ const Layout = ({ children, title }: LayoutProps) => {
         description="Knowledge How-toサイト - あなたの知識を共有しましょう"
       />
       <Header title={title} />
-      <main className="flex-grow w-full flex flex-col">{children}</main>
+      <main role="main" className="flex-grow w-full flex flex-col">{children}</main>
     </div>
   );
 };
