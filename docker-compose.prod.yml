@@ -1,0 +1,12 @@
+services:
+  web:
+    build: 
+      context: .
+      args:
+        - NODE_ENV=production
+    container_name: knhow-app-prod
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always 
