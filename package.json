@@ -2,7 +2,6 @@
   "name": "knhow",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://frontech-space.github.io/KnHow",
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -24,13 +23,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/KnHow react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
-    "update-browserslist": "npx update-browserslist-db@latest"
+    "eject": "react-scripts eject"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -41,7 +37,6 @@
     "@vitejs/plugin-react": "^4.4.1",
     "@vitest/coverage-v8": "^3.1.4",
     "cross-env": "^7.0.3",
-    "gh-pages": "^6.3.0",
     "jsdom": "^26.1.0",
     "vitest": "^3.1.4"
   },
