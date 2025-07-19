@@ -4,7 +4,6 @@ import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Image from "../components/common/Image";
 import { useNavigate } from "react-router-dom";
-import Navigation from "../components/features/top/Navigation";
 import { useState } from "react";
 
 const Login = () => {
@@ -49,8 +48,6 @@ const Login = () => {
 
   return (
     <Layout title="ログイン">
-      {/* Navigation */}
-      <Navigation />
       
       <section
         className="flex flex-col md:flex-row w-full mt-1"
